@@ -22,8 +22,9 @@ int main()
                 a>>=1LL;
 
             while(a && (a&1LL))
-                a>>=1LL, resp = max(resp, ++con);
+                a>>=1LL, ++con;
 
+            resp = max(resp, con);
             con = 0LL;
         }
 
