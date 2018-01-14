@@ -21,7 +21,7 @@ int main()
             while(a && !(a&1LL))
                 a>>=1LL;
 
-            while(a && (a&1LL))
+            while(a&1LL)
                 a>>=1LL, ++con;
 
             resp = max(resp, con);
