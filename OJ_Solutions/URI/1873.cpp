@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <map>
 #define $ ios::sync_with_stdio(0);
@@ -19,12 +18,11 @@ int main()
     while(n--)
     {
         cin>>s>>a;
-
-        if(mp[s]==(mp[a]+1)%5 || mp[s] == (mp[a]+3)%5)
-            cout<<"sheldon\n";
-        else if(mp[a]==(mp[s]+1)%5 || mp[a] == (mp[s]+3)%5)
-            cout<<"rajesh\n";
-        else
+        if(mp[s]==mp[a])
             cout<<"empate\n";
+        else if(mp[s]==(mp[a]+1)%5 || mp[s] == (mp[a]+3)%5)
+            cout<<"sheldon\n";
+        else
+            cout<<"rajesh\n";
     }
 }
