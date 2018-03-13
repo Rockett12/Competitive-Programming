@@ -7,7 +7,7 @@ int main()
     int t, f;
     stack<char> st;
     string a;
-    char x;
+    char x, k;
     cin>>t;
     while(t--)
     {
@@ -20,7 +20,7 @@ int main()
             if((x = a[i])=='{' || x == '[' || x == '(')
                st.push(x);
             else if(!st.empty())
-                if(x==')' && st.top()=='(' || x==']' && st.top()=='[' || x=='}' && st.top()=='{')
+                if(x==')' && (k = st.top())=='(' || x==']' && k =='[' || x=='}' && k =='{')
                     st.pop();
                 else
                     f = 0;
