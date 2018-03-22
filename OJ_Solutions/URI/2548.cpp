@@ -15,30 +15,23 @@ using namespace std;
 typedef map<int, int> mii;
 typedef long long int ll;
 typedef pair<int, string> ii;
-typedef vector<ii> vi;
+typedef vector<int> vi;
 typedef vector<vi> graph;
 int main()
 {$
-    int n, a, b, c, k;
+    int n,m, a, b, c, k;
     string s;
     vi v;
-    while(cin>>n)
+    while(cin>>n>>m)
     {
         v.clear();
-       while(n--)
-           cin>>s>>b, v.pb(ii(b,s));
+        while(n--)
+            cin>>b,v.pb(b);
 
-       sort(v.begin(), v.end());
+        k = 0;
+        for(int i = (int)v.size()-1; i>=0 && m--; --i)
+            k+=v[i];
 
-       for(int i = 0; i<(int)v.size(); ++i)
-       {
-            if(i)
-                cout<<" ";
-            cout<<v[i].S;
-       }
-
-       cout<<endl;
+        cout<<k<<endl;
     }
-
-
 }
