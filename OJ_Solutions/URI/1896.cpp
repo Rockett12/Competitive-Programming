@@ -17,7 +17,7 @@ struct Card{
 
 int main()
 {$
-    int n, a, b, c, f=0;
+    int n, a, b, c, f=1;
     vector<Card> v, s;
     Card zero, mon, m;
     cin>>n>>a>>b>>c;
@@ -29,24 +29,21 @@ int main()
         mon = Card(a,b,c);
         if(mon==prass)
             continue;
-        if(!f)
+        if(f)
             s = v;
 
-        for(int i = 0; i<(int)v.size() && !f; ++i)
-        {
-            m = v[i]-mon;
-            if(m==zero)
-                f=1;
+        for(int i = 0; i<(int)v.size() && f; ++i)
+            if((m = v[i]-mon)==zero)
+                f=0;
             else if(m.x >=0 && m.y >=0 && m.z>=0)
                 s.pb(m);
-        }
 
-        if(!f)
+        if(f)
             v = s;
     }
 
-    if(f) cout<<"Y"<<endl;
-    else cout<<"N"<<endl;
+    if(f) cout<<"N"<<endl;
+    else cout<<"Y"<<endl;
 
 }
 
