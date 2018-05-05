@@ -6,8 +6,7 @@ using namespace std;
 int dp[MAXM], w[MAXN];
 int main()
 {
-    int a, b, n, soma, c, k=0;
-    dp[0] = 1;
+    int a, b, n, soma, c, k =0, TC = 0;
     while(scanf("%d %d %d", &a, &b, &n)&&n)
     {
         soma = a+b;
@@ -21,14 +20,14 @@ int main()
         }
 
         soma>>=1;
-        for(int i = 1; i<=soma; ++i)
-            dp[i]=0;
+        dp[0] = ++TC;
 
         for(int i = 1; i<=n; ++i)
             for(int j = soma; j>=w[i]; --j)
-                dp[j] = max(dp[j], dp[j-w[i]]);
+                if(dp[j-w[i]]==TC)
+                    dp[j] = TC;
 
-        if(dp[soma-a])
+        if(dp[soma-a]==TC)
             a = 1;
         else
             a = 0;

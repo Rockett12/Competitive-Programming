@@ -11,21 +11,6 @@ struct Ret{
         return r.x > z || r.y < w ||  r.z < x || r.w > y;
     }
 
-    bool operator*(const Ret& r) {
-        if(x>=r.x && z<=r.z && w>=r.w && y <=r.y)
-            return 1;
-        if(x<=r.x && z>=r.z && w<=r.w && y >=r.y)
-        {
-            x = r.x;
-            y = r.y;
-            z = r.z;
-            w = r.w;
-            return 1;
-        }
-
-        return 0;
-    }
-
     void operator+ (const Ret& r){
         x = max(x, r.x);
         z = min(z, r.z);
@@ -50,7 +35,6 @@ int main()
             scanf("%d %d %d %d", &s.x, &s.y, &s.z, &s.w);
 
             if(r^s) flag = 0;
-            else if(r*s);
             else r+s;
         }
         printf("Teste %d\n", ++m);

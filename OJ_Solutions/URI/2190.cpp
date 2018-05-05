@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <iostream>
 #include <vector>
+#include <cstdio>
 #include <algorithm>
 #define $ ios::sync_with_stdio(0);
 #define eb emplace_back
@@ -32,30 +33,30 @@ bool join(int a, int b)
 }
 
 int main()
-{$
+{
     int n, m,u,v,w, j=0;
     edge e;
-    while(cin>>n>>m && n)
+    while(scanf("%d %d", &n, &m)!=EOF && n)
     {
         edl.clear();
         for(int i = 1; i<=n; ++i)
             pai[i] = i, r[i] = 0;
         while(m--)
         {
-            cin>>u>>v>>w;
+            scanf("%d %d %d", &u, &v, &w);
             edl.eb(w,mp(u,v));
         }
 
         sort(edl.begin(), edl.end());
-        cout<<"Teste "<<++j<<'\n';
+        printf("Teste %d\n", ++j);
         for(edge e : edl)
-        {
-            u = e.S.F, v = e.S.S;
-            if(u>v)
-                u^=v, v^=u, u^=v;
-            if(join(u,v))
-                cout<<u<<' '<<v<<'\n';
-        }
-        cout<<'\n';
+            if(join((u = e.S.F),(v = e.S.S)))
+            {
+                if(u>v)
+                    u^=v, v^=u, u^=v;
+                printf("%d %d\n", u, v);
+            }
+
+        puts("");
     }
 }
